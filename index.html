@@ -1,6 +1,4 @@
-
-
-r<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <!-- ========================This is the head ========================-->
@@ -29,7 +27,7 @@ r<!DOCTYPE html>
   "name": "Sravani Kurma",
   "jobTitle": "Assistant Research Professor",
   "affiliation": "Mississippi State University",
-  "url": "https://sravanikurma-2026.github.io",
+  "url": "https://sravani-kurma.github.io/CV/",
   "sameAs": [
     "https://scholar.google.com/citations?user=sravanikurma",
     "https://ieeexplore.ieee.org/author/sravanikurma"
@@ -732,14 +730,34 @@ r<!DOCTYPE html>
 }
 
 .news-list li::before {
-    content: "\f1ea"; /* fa-newspaper icon */
-    font-family: "Font Awesome 6 Free";
-    font-weight: 900;
+    content: "✦";
     position: absolute;
     left: 0;
-    top: 0;
-    color: var(--text-color);
-    font-size: 16px;
+    top: -1px;
+    color: #ffd700;
+    font-size: 18px;
+    font-weight: bold;
+    animation: recentNewsGlow 1.5s infinite alternate ease-in-out;
+    text-shadow: 0 0 5px #ffd700, 0 0 10px #ffcc00, 0 0 18px #ffaa00;
+}
+
+@keyframes recentNewsGlow {
+    0% {
+        transform: scale(1) rotate(0deg);
+        opacity: 0.75;
+        text-shadow: 0 0 4px #ffd700, 0 0 8px #ffcc00;
+    }
+    100% {
+        transform: scale(1.28) rotate(10deg);
+        opacity: 1;
+        text-shadow: 0 0 8px #ffffff, 0 0 18px #ffd700, 0 0 28px #ff8800;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .news-list li::before {
+        animation: none;
+    }
 }
 .visitor-count-box {
     margin-top: 20px;
@@ -774,7 +792,37 @@ r<!DOCTYPE html>
     height: 300px;
     margin: 0 auto;
 }
-    </style>
+
+.service-list ul {
+    list-style-type: disc;
+    padding-left: 35px;
+    margin: 0;
+}
+.service-list ul li {
+    list-style-type: disc;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: var(--text-color);
+}
+.service-list ul ul {
+    list-style-type: circle;
+    padding-left: 25px;
+    margin-top: 8px;
+}
+.service-list ul ul li {
+    list-style-type: circle;
+    margin-bottom: 6px;
+}
+    
+.publication-link {
+    color: violet;
+    text-decoration: none;
+    font-weight: bold;
+}
+.publication-link:hover {
+    text-decoration: underline;
+}
+</style>
     <style>
         .stats-container {
             display: grid;
@@ -856,7 +904,61 @@ r<!DOCTYPE html>
             content: "📍";
             margin-right: 5px;
         }
-    </style>
+    
+/* Ensure numbered lists are visible in the Teaching and Mentoring section */
+#teaching-mentoring ol {
+    list-style-type: decimal !important;
+    padding-left: 40px !important;
+    margin-left: 0 !important;
+}
+
+#teaching-mentoring ol li {
+    list-style-type: decimal !important;
+    display: list-item !important;
+    margin-bottom: 8px;
+}
+
+    
+/* Bullet-style role highlights for current faculty role */
+.role-highlights-list {
+    list-style-type: disc !important;
+    padding-left: 25px !important;
+    margin-top: 10px;
+}
+
+.role-highlights-list li {
+    list-style-type: disc !important;
+    display: list-item !important;
+    font-weight: normal !important;
+    margin-bottom: 10px !important;
+    line-height: 1.5;
+}
+
+.role-highlights-list > li {
+    margin-bottom: 14px !important;
+}
+
+.role-highlights-list > li > strong {
+    color: var(--section-title);
+    font-size: 16px;
+}
+
+.role-highlights-list ul {
+    list-style-type: circle !important;
+    padding-left: 25px !important;
+    margin-top: 6px;
+}
+
+.role-highlights-list ul li {
+    list-style-type: circle !important;
+    margin-bottom: 6px !important;
+    font-weight: normal !important;
+}
+
+.role-highlights-list ul li strong {
+    color: var(--text-color);
+}
+</style>
 </head>
 
 
@@ -889,9 +991,11 @@ r<!DOCTYPE html>
     <a href="#work-experience"><i class="fa-solid fa-briefcase"></i> Work Experience</a>
     <a href="#teaching-mentoring"><i class="fa-solid fa-chalkboard-teacher"></i> Teaching and Mentoring</a>
     <a href="#honors-awards"><i class="fa-solid fa-award"></i> Honors</a>
-    <a href="#skills"><i class="fa-solid fa-users"></i>Service</a>
+    <a href="#skills"><i class="fa-solid fa-users"></i> Service</a>
+    <a href="#invited-talks"><i class="fa-solid fa-microphone-lines"></i> Invited Talks</a>
     <a href="#publications"><i class="fa-solid fa-book"></i> Publications</a>
     <a href="#projects"><i class="fa-solid fa-book"></i> Projects</a>
+    <a href="#grants"><i class="fa-solid fa-file-lines"></i> Grants</a>
     <a href="#contact"><i class="fa-solid fa-user"></i> Contact</a>
 </div>
 
@@ -903,42 +1007,45 @@ r<!DOCTYPE html>
         <div class="home-box">
             <h3><i class="fa-solid fa-user"></i> Biography</h3>
             <div class="about-content">
-            <p>SRAVANI KURMA (IEEE, MEMBER) is an Assistant Professor in the Department of Electrical and Computer Engineering at Mississippi State University (MSU). She received the B.Tech. degree in Electronics and Communication Engineering from the JNTUH college of Engineering, Jagtial, India, in 2017, and Master's degree (Gold Medalist) in Communication System Engineering from Visvesvaraya National Institute of Technology, Nagpur, India, in 2019. In 2024, she received a Ph.D in the Institute of Communications Engineering (ICE) from National Sun Yat-sen University, Taiwan. She worked as a Wireless Connectivity Software Intern at NXP Semiconductor, Taipei, Taiwan, from September 2023 to May 2024. Her current research interests include 5G, 6G, Industrial internet of things (IIoT), wireless energy harvesting (EH), cooperative communications, Reconfigurable intelligent surfaces (RIS), Full-duplex communication, cell-free MIMO, ultra-reliable and low latency communication (URLLC), resource allocation, large language models (LLMs), Open RAN, and machine learning for communication. She received the Excellent Ph.D Student in Research Award in 2024.</p>
+            <p>SRAVANI KURMA (IEEE Member) is an Assistant Research Professor in the Department of Electrical and Computer Engineering at Mississippi State University (MSU). She received the B.Tech. degree in Electronics and Communication Engineering from JNTUH College of Engineering, Jagtial, India, in 2017, and the M.Tech. degree in Communication System Engineering from Visvesvaraya National Institute of Technology, Nagpur, India, in 2021, where she was a Gold Medalist. She received the Ph.D. degree in Wireless Communications from the Institute of Communications Engineering, National Sun Yat-sen University, Taiwan, in 2024, where she received the Excellent Ph.D. Research Award. She worked as a Wi-Fi Firmware Engineering Intern at NXP Semiconductor, Taipei, Taiwan, from September 2023 to May 2024. Her current research interests include Agentic AI, 5G/6G wireless systems, AI-native and digital twin-enabled O-RAN, reconfigurable intelligent surfaces, cell-free massive MIMO, full-duplex communications, integrated sensing and communications, UAV-assisted intelligent networks, cyber-physical systems, vehicular communications, mobile edge computing, large language models, and machine learning for wireless communications.</p>
             </div>
+        </div>
+        <div class="home-box">
+            <h3><i class="fa-solid fa-newspaper"></i> Recent News</h3>
+            <ul class="news-list">
+                <li><strong>June 2026:</strong> Paper accepted in <em>IEEE Transactions on Vehicular Technology</em>: Slice-Aware Digital Twin Virtualization with RAG Assistant for O-RAN in Internet-of-Vehicles.</li>
+                <li><strong>2026:</strong> Secured the Office of Research and Economic Development Undergraduate Research Program Grant as Principal Investigator at Mississippi State University.</li>
+                <li><strong>2026:</strong> Serving as Guest Editor for the <em>npj Wireless Technology</em> Nature Portfolio collection on underwater wireless communication and networking.</li>
+                <li><strong>2026:</strong> Serving as Editor for <em>IEEE Wireless Communications Letters</em>.</li>
+                <li><strong>2026:</strong> Serving as Session Chair for multiple IEEE ICC 2026 sessions and as TPC Member for IEEE MILCOM 2026, IEEE VTC 2026, and EuCNC &amp; 6G Summit 2026.</li>
+                <li><strong>2026:</strong> Accepted multiple IEEE ICC 2026 and IEEE VTC 2026 papers on O-RAN, ISAC, RIS, IAB, digital twins, and LLM-assisted wireless networks.</li>
+                <li><strong>January 2025:</strong> Joined Mississippi State University as Assistant Research Professor.</li>
+                <li><strong>2024:</strong> Selected among the 100 Brilliant and Inspiring Women in 6G and received the Excellent Ph.D. Research Award from National Sun Yat-sen University, Taiwan.</li>
+            </ul>
         </div>
         <div class="home-box">
             <h3><i class="fa-solid fa-lightbulb"></i> Research Interests</h3>
             <ul class="interests-list">
-                <li>Cell-free Massive MIMO networks</li>
-                <li>Reconfigurable intelligent surfaces</li>
-                <li>Machine learning</li>
-                <li>Artificial intelligence</li>
-                <li>Digital twins</li>
-                <li>Integrated sensing and communications</li>
-                <li>Large language models</li>
+                <li>Agentic AI for wireless communication systems</li>
+                <li>Artificial intelligence and machine learning</li>
+                <li>Cell-free massive MIMO networks</li>
                 <li>Cooperative communication</li>
+                <li>Cyber-physical systems</li>
+                <li>Digital twins</li>
                 <li>Full-duplex communications</li>
+                <li>Integrated sensing and communications</li>
                 <li>Internet-of-Things</li>
+                <li>Large language models</li>
+                <li>Mobile edge computing networks</li>
+                <li>Open Radio Access Networks</li>
+                <li>Reconfigurable intelligent surfaces</li>
+                <li>UAV-assisted intelligent networks</li>
                 <li>Vehicular communications</li>
-                <li>Open Radio access networks</li>
-                <li>Mobile Edge Computing Networks</li>
             </ul>
         </div>
-        <div class="home-box">
-            <h3><i class="fa-solid fa-rss"></i> Recent News</h3>
-            <ul class="news-list">
-                <li>Published 23 research works including 12 conferences and 11 transactions by the end of 2025</li>
-                <li>Submitted proposal to NSF-VINES Track-1 (International collaboration with India)</li>
-                <li>Submitted proposal to NSF-VINES Track-1 (Collaboration with CSE department of MSU)</li>
-                <li>Joined Mississippi State University as Assistant Research Professor in January 2025</li>
-                <li>Received Excellent Ph.D Student in Research Award in 2024</li>
-                <li>Completed Ph.D. from National Sun Yat-sen University, Taiwan in 2024</li>
-            </ul>
-          </div>
         <script type="text/javascript" id="mapmyvisitors" src="//mapmyvisitors.com/map.js?d=2cz4oVbSOrtdAa_TP5YLNx1lKs7V1MVji0hx77wIq6o&cl=ffffff&w=a"></script>
     </div>
 </div>
-
 
 <!-- Education Section -->
 <div class="section" id="education">
@@ -949,18 +1056,23 @@ r<!DOCTYPE html>
                 <li>
                     <div class="title-line">
                         <div><i class="fa-solid fa-university"></i> <strong>Ph.D. - Wireless Communications</strong></div>
-                        <span class="dates">September 2021 - Present</span>
+                        <span class="dates">September 2021 - September 2024</span>
                     </div>
                     <span class="institution">National Sun Yat-sen University, Kaohsiung, Taiwan</span><br>
-                    <span class="highlight">CGPA: 4.26 / 4.3</span>
+                    <span class="highlight">CGPA: 4.26 / 4.3 (Excellent Ph.D. Research Awardee)</span><br>
+                    <strong>Dissertation:</strong> Performance Analysis and Machine-learning based Resource Optimization for RIS-Aided Wireless Networks with IBL and FBL Codes.<br>
+                    <strong>Advisors:</strong> Keshav Singh and Chih-Peng Li (IEEE Fellow)<br>
+                    <strong>Research Focus:</strong> 5G/6G, IIoT, energy harvesting, cooperative communications, RIS, full-duplex communications, cell-free MIMO, URLLC, resource allocation, LLMs, and machine learning for communications.
                 </li>
                 <li>
                     <div class="title-line">
                         <div><i class="fa-solid fa-school"></i> <strong>M.Tech. - Communication System Engineering</strong></div>
                         <span class="dates">August 2019 - June 2021</span>
                     </div>
-                    <span class="institution">Visvesvaraya National Institute Of Technology, Nagpur, India</span><br>
-                    <span class="highlight">CGPA: 8.93 / 10 (Gold Medalist)</span>
+                    <span class="institution">Visvesvaraya National Institute of Technology, Nagpur, India</span><br>
+                    <span class="highlight">CGPA: 8.93 / 10 (Gold Medalist)</span><br>
+                    <strong>Thesis:</strong> Cooperative User Selection with Non-Linear Energy Harvesting in IoT Environment<br>
+                    <strong>Advisor:</strong> Prabhat Kumar Sharma
                 </li>
                 <li>
                     <div class="title-line">
@@ -968,7 +1080,10 @@ r<!DOCTYPE html>
                         <span class="dates">August 2013 - June 2017</span>
                     </div>
                     <span class="institution">JNTUH College of Engineering, Jagtial, Telangana, India</span><br>
-                    <span class="highlight">Percentage: 81.12%</span>
+                    <span class="highlight">Percentage: 81.12%</span><br>
+                    <strong>Major Project:</strong> Heartbeat Monitoring using PIC 16F72 Microcontroller<br>
+                    <strong>Minor Project:</strong> Design of Automatic Traffic Control Using VERILOG<br>
+                    <strong>Advisor:</strong> Tirupathamma
                 </li>
                 <li>
                     <div class="title-line">
@@ -976,13 +1091,14 @@ r<!DOCTYPE html>
                         <span class="dates">August 2010 - June 2013</span>
                     </div>
                     <span class="institution">Govt. Polytechnic for Women, Nizamabad, Telangana, India</span><br>
-                    <span class="highlight">Percentage: 91.88%</span>
+                    <span class="highlight">Percentage: 91.88%</span><br>
+                    <strong>Project:</strong> Circuit Design of Regulated Power Supply<br>
+                    <strong>Advisor:</strong> Chamundeshwari
                 </li>
             </ul>
         </div>
     </div>
 </div>
-
 
 <!-- Work Experience Section -->
 <div class="section" id="work-experience">
@@ -1000,16 +1116,42 @@ r<!DOCTYPE html>
                         <span class="dates">January 2025 – Present</span>
                     </div>
                     <span class="institution">Mississippi State University – Mississippi, USA</span><br>
-                    <div class="responsibilities-heading">Responsibilities</div>
-                    <ul>
-                        <li>Working on the OAIC project and developing AI-driven O-RAN architecture with a focus on digital twin integration</li>
-                        <li>Leading research on AI-driven, digital twin-enabled Open RAN systems</li>
-                        <li>Submitted research on ORAN, Machine learning and ISAC in IEEE ICC-2025, IEEE TVT-2025, IEEE JSAC-2025, IEEE TWC-2025</li>
-                        <li>Developed LLM based Reinforcement learning algorithms</li>
-                        <li>As a PI/CO-PI, submitted multiple proposals to DOD, MURI, NOFO3, and Department of the Navy (DON), SATc, NSF-VINES Track 1-2025 – currently under review</li>
-                        <li>As a lead PI, collaborated with interdisciplinary and international teams (IIT-BHU, IIT-INDORE, VNIT NAGPUR, ABV-IITM Gwalior) for next-generation ISAC architecture design for NSF-VINES Track-1 2025</li>
-                        <li>Teaching Electric Circuits course and Multisim simulations for Undergraduate students (132 students) for the Fall-2025</li>
-                        <li>Mentoring undergraduates, graduates, and Ph.D students on ORAN and LLM projects</li>
+                    <div class="responsibilities-heading">Role Highlights</div>
+                    <ul class="role-highlights-list">
+                        <li><strong>Grants and Proposals</strong>
+                            <ul>
+                                <li>Secured the <strong>ORED Undergraduate Research Program Grant</strong> as a single <strong>Principal Investigator</strong> to advance AI-enabled UAV communication research using OAIC and AERPAW open wireless testbeds.</li>
+                                <li>Submitted multiple research proposals as PI/co-PI to DoD, MURI, NOFO3, the Department of the Navy, NSF SATC, NSF NETS FUTURE CORE, NSF VINES Track 1, and Amazon Research Awards.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Research and Development</strong>
+                            <ul>
+                                <li>Leading research on AI-driven, digital twin-enabled O-RAN architectures within the OAIC project.</li>
+                                <li>Developing LLM-assisted reinforcement learning algorithms for advanced wireless communication systems.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Publications</strong>
+                            <ul>
+                                <li>Submitted research papers on O-RAN, machine learning, and ISAC to IEEE VTC 2026, IEEE ICC 2026, IEEE TVT 2025, IEEE JSAC 2026, and IEEE TWC 2026.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Collaborations</strong>
+                            <ul>
+                                <li>Established interdisciplinary and international collaborations with IIT-BHU, IIT Indore, VNIT Nagpur, and ABV-IIITM Gwalior for next-generation ISAC architecture design under NSF VINES Track 1.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Teaching</strong>
+                            <ul>
+                                <li>Taught <strong>Electric Circuits (ECE 3413)</strong>, an undergraduate-level course with Multisim laboratories, in Fall 2025.</li>
+                                <li>Taught <strong>Communication Theory (ECE 4813/6813)</strong>, a combined undergraduate and graduate-level course, in Summer 2026.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Mentoring</strong>
+                            <ul>
+                                <li>Mentoring undergraduate, graduate, and Ph.D. students in O-RAN, LLM, and AI-driven wireless systems research.</li>
+                                <li>Guiding students on research implementation, experimental validation, manuscript preparation, and conference/journal submissions.</li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </li>
@@ -1018,7 +1160,7 @@ r<!DOCTYPE html>
                     <div class="title-line">
                         <div>
                             <i class="fa-solid fa-network-wired"></i>
-                            <strong>Wireless Connectivity Software Intern</strong>
+                            <strong>Wi-Fi Firmware Engineering Intern</strong>
                         </div>
                         <span class="dates">September 2023 - May 2024</span>
                     </div>
@@ -1043,8 +1185,9 @@ r<!DOCTYPE html>
                     <span class="institution">National Sun-Yat sen University - Kaohsiung, Taiwan</span><br>
                     <div class="responsibilities-heading">Responsibilities</div>
                     <ul>
-                        <li>Worked on 5G/6G communication 8 different projects funded by Taiwan Government</li>
-                        <li>Published 23 works including 12 conferences and 11 transactions on performance analysis of cell-free networks and machine learning algorithms for optimization of RIS based cellular networks</li>
+                        <li>Contributed to eight Taiwan government-funded 5G/6G research projects spanning RIS, STAR-RIS, cell-free massive MIMO, URLLC, THz-ISAC, mobile edge computing, and digital twin-enabled wireless systems</li>
+                        <li>Developed analytical and machine learning-based frameworks for spectral efficiency, energy efficiency, outage, latency, and reliability optimization in next-generation wireless communication systems</li>
+                        <li>Published 23 works including 12 conferences and 11 transactions on performance analysis of cell-free networks and machine learning algorithms for optimization of RIS-based cellular networks</li>
                         <li>Mentored two graduate students and co-authored 5 publications (i.e., two IEEE Transactions and three conferences)</li>
                     </ul>
                 </div>
@@ -1206,38 +1349,52 @@ r<!DOCTYPE html>
         <div class="work-experience">
             <div class="work-header">
                 <h3>Mentoring Experience</h3>
-                 <ul>
-                    <li>Mentored undergraduate and graduate students on O-RAN, RIS, ISAC, LLM-enhanced architectures, and machine-learning–driven wireless communication projects.</li>
+                <ul>
+                    <li>Mentored undergraduate and graduate students on O-RAN, RIS, ISAC, LLM-enhanced architectures, quantum computing, and machine-learning-driven wireless communication projects.</li>
                 </ul>
                 <p><strong>Undergraduates and Graduates at MSU, USA</strong></p>
                 <ol>
-                    <li>Safal Dhamala - [March 2025-Present]</li>
-                    <li>Utkarsh Upadyaya - [May 2025- Present]</li>
-                    <li>Cameron Dedeaux- [September 2025 - October 2025]</li>
-                    <li>Rakshit - [October 2025 -Present]</li>
-                    <li>Saphal -[October 2025 -Present]</li>
-                    <li>Ali-[October 2025 -Present]</li>
-                    <li>Niraj-[October 2025 -Present]</li>
-                    <li>Amine-[Nov 2025 -Present]</li>
-                    <li>Saphal-[Nov 2025 -Present]</li>
-                    <li>Rhassan-[Nov 2025 -Present]</li>
-                    <li>Edward-[Nov 2025 -Present]</li>
-                    <li>Ashar-[Nov 2025 -Present]</li>
+                    <li>Safal Dhamala - [March 2025 - Feb 2026]</li>
+                    <li>Utkarsh Upadyaya - [May 2025 - Jan 2026]</li>
+                    <li>Cameron Dedeaux - [September 2025 - October 2025]</li>
+                    <li>Rakshit - [October 2025 - Feb 2026]</li>
+                    <li>Saphal - [October 2025 - Feb 2026]</li>
+                    <li>Ali - [October 2025 - Jan 2026]</li>
+                    <li>Niraj - [October 2025 - Feb 2026]</li>
+                    <li>Amine - [November 2025 - Feb 2026]</li>
+                    <li>Rhassan - [November 2025 - Feb 2026]</li>
+                    <li>Edward - [November 2025 - Present]</li>
+                    <li>Ashar - [November 2025 - Present]</li>
+                </ol>
+                <p><strong>Graduates at NSYSU, Taiwan</strong></p>
+                <ol>
+                    <li>Riya Yadav - [2022 - 2023]</li>
+                    <li>Tri Ayu Lestari - [2022 - 2024]</li>
+                </ol>
+                <p><strong>Ph.D. Students at Other Universities</strong></p>
+                <ol>
+                    <li>Shilpa - MNIT, India [2025 - Present]</li>
+                    <li>Gaurav Singh - UT Arlington, Texas [2025 - Present]</li>
                 </ol>
             </div>
             <div class="work-header">
                 <h3>Teaching Experience</h3>
                 <p><strong>Mississippi State University, USA</strong></p>
                 <ul>
-                    <li>Introduction to Electric Circuits (EC3413) – 132 students [Fall 2025]</li>
+                    <li>Taught <strong>Electric Circuits (ECE 3413)</strong>, an undergraduate-level course with Multisim laboratories, in Fall 2025.</li>
+                    <li>Taught <strong>Communication Theory (ECE 4813/6813)</strong>, a combined undergraduate and graduate-level course, in Summer 2026.</li>
                     <li>Conducted Multisim simulation labs and designed active-learning sessions.</li>
                     <li>Mentored undergraduate and graduate students in O-RAN, ISAC, LLM, and ML-based projects.</li>
+                </ul>
+                <p><strong>National Sun Yat-sen University, Taiwan</strong></p>
+                <ul>
+                    <li>Teaching Assistant for graduate-level Full-Duplex Communication Systems.</li>
+                    <li>Conducted tutorial sessions and guided MATLAB-based simulations, lab experiments, and project evaluations.</li>
                 </ul>
             </div>
         </div>
     </div>
 </div>
-
 
 <!-- Achievements Section -->
 <div class="section" id="achievements">
@@ -1246,7 +1403,7 @@ r<!DOCTYPE html>
         <div class="achievements">
             <ul>
                 <li>
-                    <i class="fa-solid fa-medal"></i> <strong>2023:</strong> All-topic competition at NSYSU, Taiwan - <span class="highlight">III prize</span>
+                    <i class="fa-solid fa-medal"></i> <strong>2023:</strong> All-topic competition at NSYSU, Taiwan - <span class="highlight">III prize for developing a novel DDA Modulation technique for Active-STAR-RIS-Aided THz ISAC Systems</span>
                 </li>
                 <li>
                     <i class="fa-solid fa-award"></i> <strong>2021:</strong> Gold Medalist in Masters in Communication Engineering
@@ -1288,7 +1445,7 @@ r<!DOCTYPE html>
             <h3>Achievements</h3>
             <ul>
                 <li>
-                    <i class="fa-solid fa-medal"></i> <strong>2023:</strong> All-topic competition at NSYSU, Taiwan - <span class="highlight">III prize</span>
+                    <i class="fa-solid fa-medal"></i> <strong>2023:</strong> All-topic competition at NSYSU, Taiwan - <span class="highlight">III prize for developing a novel DDA Modulation technique for Active-STAR-RIS-Aided THz ISAC Systems</span>
                 </li>
                 <li>
                     <i class="fa-solid fa-award"></i> <strong>2021:</strong> Gold Medalist in Masters in Communication Engineering
@@ -1310,12 +1467,21 @@ r<!DOCTYPE html>
 
 <!-- Service and Professional Activities Section -->
 <div class="section" id="skills">
-    <div class="section-title"><i class="fa-solid fa-users"></i>Service and Professional Activities</div>
+    <div class="section-title"><i class="fa-solid fa-users"></i> Service and Professional Activities</div>
     <div class="section-content">
-        <div class="skills">
-            <ol>
+        <div class="service-list">
+            <ul>
+                <li><strong>Guest Editor,</strong> <em>npj Wireless Technology</em> (Nature Portfolio), Collection: “Underwater Wireless Communication and Networking: Towards Scalable, Resilient, and Green Solutions,” Springer Nature, 2026.</li>
+                <li><strong>Editor,</strong> <em>IEEE Wireless Communications Letters</em>, 2026.</li>
+                <li><strong>Session Chair,</strong> 2026 IEEE ICC-CISS-14: Secure and Trustworthy Artificial Intelligence in Networking.</li>
+                <li><strong>Session Chair,</strong> 2026 IEEE ICC-SAC-BD-03: Big Data LLM.</li>
+                <li><strong>Session Chair,</strong> 2026 IEEE ICC-CISS-15: Security and Privacy in the Age of Information.</li>
+                <li><strong>Technical Program Committee Member,</strong> 2026 IEEE MILCOM, Track 1: Waveforms &amp; Signal Processing.</li>
+                <li><strong>Technical Program Committee Member,</strong> 2026 EuCNC &amp; 6G Summit, SAQ.</li>
+                <li><strong>Technical Program Committee Member,</strong> 2026 IEEE VTC, Track: Protocols, Security, and Services for Wireless Networks.</li>
                 <li><strong>Reviewer, IEEE Transactions and Journals (2023–Present):</strong>
                     <ul>
+                        <li>IEEE Journal on Selected Areas in Communications</li>
                         <li>IEEE Transactions on Communications</li>
                         <li>IEEE Transactions on Wireless Communications</li>
                         <li>IEEE Transactions on Intelligent Transportation Systems</li>
@@ -1325,157 +1491,108 @@ r<!DOCTYPE html>
                         <li>IEEE Access</li>
                     </ul>
                 </li>
-                <li><strong>Invited Talks:</strong>
-                    <ul>
-                        <li>Delivered an expert Lecture at All India Seminar on Quantum Machine Learning for Next Generation Wireless Networks, MNNIT Allahabad, September, 2025.</li>
-                        <li>Delivered a keynote at MeitY-supported workshop on Reconfigurable Intelligent Surfaces for 6G, VNIT Nagpur, March 2025.</li>
-                    </ul>
-                </li>
-                <li><strong>Judge, Spring Undergraduate Research Symposium – Engineering Judging Session,</strong> Mississippi State University, Spring 2025.</li>
-                <li><strong>Technical Program Committee (TPC) Member</strong>-2026 EuCNC & 6G Summit- SAQ.</li>
-            </ol>
+                <li><strong>Judge,</strong> Spring Undergraduate Research Symposium – Engineering Judging Session, Mississippi State University, Spring 2025.</li>
+            </ul>
         </div>
     </div>
 </div>
 
+<!-- Invited Talks Section -->
+<div class="section" id="invited-talks">
+    <div class="section-title"><i class="fa-solid fa-microphone-lines"></i> Invited Talks</div>
+    <div class="section-content">
+        <div class="service-list">
+            <ul>
+                <li>Delivered an invited expert talk on “Large Language Models in 6G: Foundations Across RIS, ISAC, and Cell-Free Systems” at the Self Finance Online STTP on “Paradigms of Next-Generation Wireless Networks: From 5G and Beyond,” NIT Raipur, India, Apr. 2026.</li>
+                <li>Delivered an invited expert talk on “Securing Programmable Multi-Hop ISAC Networks: RIS-Aided IAB with Delay Alignment Modulation and Hybrid LLM-Enhanced DRL” at the ECE Research Seminar, Mississippi State University, USA, Feb. 2026.</li>
+                <li>Delivered an expert lecture on “Large Language Models (LLMs) in Wireless Communications: From Fundamentals to Case Studies” at the All India Seminar on Quantum Machine Learning for Next Generation Wireless Networks, MNNIT Allahabad, Sep. 2025.</li>
+                <li>Delivered a keynote at the MeitY-supported workshop on Reconfigurable Intelligent Surfaces for 6G, VNIT Nagpur, Mar. 2025.</li>
+            </ul>
+        </div>
+    </div>
+</div>
 
 <!-- Publication Section -->
 <div class="section" id="publications">
-    <div class="section-title"><i class="fa-solid fa-book"></i>Publications</div>
+    <div class="section-title"><i class="fa-solid fa-book"></i> Publications</div>
     <div class="section-content">
         <div class="publications">
-        <div class="publication-box">
-            <div class="section-title"><i class="fa-solid fa-book"></i>Transactions</div>
-            <ul>
-<li>
-<p>[20] OJ Pandey, MK Shukla, <strong>S. Kurma</strong>, CH. Liu, and V. Marojevic, <strong>Towards Intelligent Semantic Communications: A Survey on AI Methods for Efficient Information Transmission</strong>, <i><strong>IEEE Communications Surveys & Tutorials</strong></i>, Oct, 2025. (Under review) (SCI - IF 7.1)</p>
-</li>
-<li>
-<p>[19] <strong>S. Kurma</strong>, M. Zhang, U. Upadhyay, S. Dhamala, and V. Marojevic, <strong>A Novel Jamming Detection and Classification in O-RAN</strong>, <i><strong>IEEE Transactions on Vehicular Technology</strong></i>, Oct, 2025. (Under review) (SCI - IF 7.1)</p>
-</li>
-<li>
-<p>[18] S. Shilpa, SK. Singh, <strong>S. Kurma</strong>, and S.Prathyusha, <strong>Optimizing RSMA-assisted Integrated Terrestrial and Non-Terrestrial Networks Performance</strong>, <i><strong>IEEE Journal on Selected Areas in Communications</strong></i>, Oct, 2025. (Under review) (SCI - IF 17.2)</p>
-</li>
-<li>
-<p>[17] S. Gaurav, <strong>S. Kurma</strong>, C. Vini, and R. Debasri, <strong>Secrecy rate optimization in Sparse Hybrid RIS-aided Internet of Robotics Networks</strong>, <i><strong>IEEE Transactions on Communications</strong></i>, Oct, 2025. (Under review) (SCI - IF 8.3)</p>
-</li>
-<li>
-<p>[16] <strong>S. Kurma</strong>, S.Dhamala, U.Upadhyay, S. Judin, V. Marojevic, and S. Mumtaz, <strong>Spectral-energy efficiency trade-off optimization in Hybrid RIS-Aided IAB Networks with Sparsification</strong>, <i><strong>IEEE Transactions on Communications</strong></i>, Sep, 2025. (Under review) (SCI - IF 8.3)</p>
-</li>
-<li>
-<p>[15] <strong>S. Kurma</strong>, C.Liu, S.Dhamala, U.Upadhyay, V. Marojevic, and S. Mumtaz, <strong>Secure and Privacy-Preserving ISAC in RIS-Aided IAB Networks with Delay Alignment Modulation</strong>, <i><strong>IEEE Transactions on Network Science and Engineering</strong></i>, Sep, 2025. (Under review) (SCI - IF 7.9)</p>
-</li>
-<li>
-<p>[14] <strong>S. Kurma</strong>, C.Liu, S.Dhamala, U.Upadhyay, V. Marojevic, R. Allu, and S. Mumtaz, <strong>Secrecy rate optimization using Hybrid actor DRL for DAM integrated RIS-Aided IAB Networks</strong>, <i><strong>IEEE Transactions on Wireless Communications</strong></i>, Sep, 2025. (Under review) (SCI - IF 10.4)</p>
-</li>
-<li>
-<p>[13] <strong>S. Kurma</strong>, U. Upadhyay, and V. Marojevic, <strong>Ensemble Machine Learning-Enabled xApps for Multi-Class Jamming Detection in O-RAN</strong>, <i><strong>IEEE Transactions on Vehicular Technology</strong></i>, Sep, 2025. (Under review) (SCI - IF 7.1)</p>
-</li>
-<li>
-<p>[12] <strong>S. Kurma</strong>, S. Dhamala, and V. Marojevic, <strong>Slice-Aware Digital Twin Virtualization with RAG Assistant for O-RAN in Internet-of-Vehicles</strong>, <i><strong>IEEE Transactions on Vehicular Technology</strong></i>, Sep, 2025. (Under review, Major revision done) (SCI - IF 7.1)</p>
-</li>
-<li>
-<p>[11] <strong>S. Kurma</strong>, K. Singh, A.-A.A. Boulogeorgos, C.-P. Li and T. A. Tsiftsis, <a href="https://ieeexplore.ieee.org/document/11153881"><strong>Active RIS-Aided Full-Duplex Cell-free Massive MIMO for Mobile Wireless Networks of Limited Capacity</strong></a>, <i><strong>IEEE Transactions on Vehicular Technology</strong></i>, Sep, 2025. (SCI - IF 7.1)</p>
-</li>
-<li>
-<p>[10] <strong>S. Kurma</strong>, K. Singh, A. Paul, S. Mumtaz, and C.-P. Li, <a href="https://ieeexplore.ieee.org/document/11075701"><strong>Dual-LLM Integration for Next-Gen Wireless Networks: Synergizing with DUDR and RIS,</strong></a> <i><strong>IEEE Transactions on Communications</strong></i>, July, 2025. (SCI - IF 8.3)</p>
-</li>
-<li>
-<p>[9] <strong>S. Kurma</strong>, K. Singh, P. K. Sharma, C.-P. Li and T. A. Tsiftsis, <a href="https://ieeexplore.ieee.org/document/10741221"><strong>On the Performance Analysis of Full-Duplex Cell-Free Massive MIMO with User Mobility and Imperfect CSI</strong></a>, <i><strong>IEEE Transactions on Communications</strong></i>, Nov. 2024. (SCI - IF 8.3)</p>
-</li>
-<li>
-<p>[8] T. A. Lestari, <strong>S. Kurma</strong>, K. Singh, A. Paul, S. Cotton and T. Q. Duong, <a href="https://ieeexplore.ieee.org/abstract/document/10703125"><strong>Exploiting Active STAR-RIS to enable URLLC in Digitally-Twinned Internet-of-Things Networks</strong></a>, <i><strong>IEEE Transactions on Communications</strong></i>, Oct. 2024. (SCI - IF 8.3)</p>
-</li>
-<li>
-<p>[7] <strong>S. Kurma</strong>, K. Singh, S. Mumtaz, T. A. Tsiftsis and C.-P. Li, <a href="https://ieeexplore.ieee.org/document/10606184"><strong>Resource Optimization in Active-STAR-RIS-Aided THz ISAC Systems with DDA Modulation: A Machine-Learning Approach</strong></a>, <i><strong>IEEE Transactions on Wireless Communications</strong></i>, July 2024. (SCI - IF 10.4)</p>
-</li>
-<li>
-<p>[6] <strong>S. Kurma</strong>, K. Singh, A.-A.A. Boulogeorgos, C.-P. Li and T. A. Tsiftsis, <a href="https://ieeexplore.ieee.org/abstract/document/10525063"><strong>URLLC-Enabled Full-duplex Cell-Free Massive MIMO Systems for Intelligent Vehicles with Mobility and CSI Imperfections</strong></a>, <i><strong>IEEE Open Journal of the Communications Society</strong></i>, May 2024. (SCI - IF 7.9)</p>
-</li>
-<li>
-<p>[5] <strong>S. Kurma</strong>, P. K. Sharma, K. Singh, S. Mumtaz and C.-P. Li, <a href="https://ieeexplore.ieee.org/abstract/document/9756304"><strong>URLLC-Based Cooperative Industrial IoT Networks With Nonlinear Energy Harvesting</strong></a>, <i><strong>IEEE Transactions on Industrial Informatics</strong></i>, May 2024. (SCI - IF 12.3)</p>
-</li>
-<li>
-<p>[4] <strong>S. Kurma</strong>, T. A. Lestari, K. Singh, A. Paul, and S. Mumtaz, <a href="https://ieeexplore.ieee.org/document/10509625"><strong>Active RIS in Digital Twin-based URLLC IoT Networks: Fully-Connected vs. Sub-Connected?</strong></a>, <i><strong>IEEE Transactions on Wireless Communications</strong></i>, Apr. 2024. (SCI - IF 10.4)</p>
-</li>
-<li>
-<p>[3] <strong>S. Kurma</strong>, M. Katwe, K. Singh, C. Pan, S. Mumtaz and C.-P. Li, <a href="https://ieeexplore.ieee.org/abstract/document/10319784"><strong>RIS-Empowered MEC for URLLC Systems with Digital-Twin-Driven Architecture</strong></a>, <i><strong>IEEE Transactions on Communications</strong></i>, Apr. 2024. (SCI - IF 8.3)</p>
-</lii >
-<li>
-<p>[2] <strong>S. Kurma</strong>, M. Katwe, K. Singh, T. Q. Duong and C.-P. Li, <a href="https://ieeexplore.ieee.org/abstract/document/10289120"><strong>Spectral-Energy Efficient Resource Allocation in RIS-Aided FD-MIMO Systems</strong></a>, <i><strong>IEEE Transactions on Wireless Communications</strong></i>, Oct. 2023. (SCI - IF 10.4)</p>
-</li>
-<li>
-<p>[1] <strong>S. Kurma</strong>, P. K. Sharma, S. Dhok, K. Singh and C.-P. Li, <a href="https://ieeexplore.ieee.org/abstract/document/9802824"><strong>Adaptive AF/DF Two-Way Relaying in FD Multiuser URLLC System With User Mobility</strong></a>, <i><strong>IEEE Transactions on Wireless Communications</strong></i>, Dec. 2022. (SCI - IF 10.4)</p>
-</li>
-            </ul>
-        </div>
             <div class="publication-box">
-                <div class="section-title"><i class="fa-solid fa-book"></i>Conferences</div>
-                <ul>
-                <li>
-                    <strong>17. </strong>S. Gaurav, <strong>S. Kurma</strong>, C. Vini, and R. Debasri, "<strong>Secure and Efficient Transmission in Hybrid Sparse RIS-Enabled Internet of Robotic Things</strong>," <em><strong>IEEE International Conference on Communications</strong></em>, Glasgow, Scotland, UK, 2026 (Under review). (Tier 1)
-                </li>
-                <li>
-                    <strong>16. </strong><strong>S. Kurma</strong>, S. Dhamala, U. Upadhyay, S. Judin, V. Marojevic, and S. Mumtaz, "<strong>Energy efficiency optimization in Sparse Hybrid RIS-Aided IAB Networks</strong>," <em><strong>IEEE International Conference on Communications</strong></em>, Glasgow, Scotland, UK, 2026 (Under review). (Tier 1)
-                </li>
-"Secure and Privacy-Preserving ISAC in RIS-Aided IAB
-"Secure and Privacy-Preserving ISAC in RIS-Aided IAB
-                </li>
-                <li>
-                    <strong>14. </strong><strong>S. Kurma</strong>, C. Liu, S. Dhamala, U. Upadhyay, V. Marojevic, and S. Mumtaz, "Hybrid DRL for Secrecy Optimization in RIS-Aided IAB Networks with DAM," <em><strong>IEEE International Conference on Communications</strong></em>, Glasgow, Scotland, UK, 2026 (Under review). (Tier 1)
-                </li>
-                <li>
-                </li>
-                <li>
-                    <strong>12. </strong><strong>S. Kurma</strong>, Tri Ayu Lestari, K. Singh, A. Paul, and S. Biswas, "Digital Twin and Active STAR-RIS Integration for Improved URLLC in Cognitive Radio Networks," <em><strong>IEEE International Conference on Communications</strong></em>, Montreal, Canada, 2025 (Accepted). (Tier 1)
-                </li>
-                <li>
-                    <strong>11. </strong><strong>S. Kurma</strong>, K. Singh, A. Paul, S. Mumtaz, and C.-P. Li, "LLMs for Resource Allocation in Next-Gen RIS-Aided Healthcare Wireless Networks," <em><strong>IEEE INFOCOM METAVERSE</strong></em>, London, UK, 2025 (Accepted). (Tier 1)
-                </li>
-                <li>
-                    <strong>10. </strong>T. A. Lestari, <strong>S. Kurma</strong>, K. Singh, A. Paul, and S. Mumtaz, "<a href="https://ieeexplore.ieee.org/abstract/document/10623114">Active STAR-RIS Assisted Digital Twin-based URLLC Internet-of-Things Networks</a>," <em><strong>IEEE International Conference on Communications</strong></em>, Denver, CO, USA, 2024. (Tier 1)
-                </li>
-                <li>
-                    <strong>9. </strong><strong>S. Kurma</strong>, K. Singh, S. Mumtaz, T. A. Tsiftsis and C.-P. Li, "<a href="https://ieeexplore.ieee.org/document/10622984">ML-Driven Resource Optimization in Active-Star-RIS-Aided THz ISAC Systems with DDA Modulation</a>," <em><strong>IEEE International Conference on Communications</strong></em>, Denver, CO, USA, 2024. (Tier 1)
-                </li>
-                <li>
-                    <strong>8. </strong><strong>S. Kurma</strong>, K. Singh, V. Bhatia, C.-P. Li and T. A. Tsiftsis, "<a href="https://ieeexplore.ieee.org/abstract/document/10622188">Active RIS-assisted CFm-MIMO with User Mobility and Constrained Fronthaul Capacity</a>," <em><strong>IEEE International Conference on Communications</strong></em>, Denver, CO, USA, 2024. (Tier 1)
-                </li>
-                <li>
-                    <strong>7. </strong>R. Yadav, <strong>S. Kurma</strong>, S. K. Singh, C.-P. Li, and M. R. Parate, "<a href="https://ieeexplore.ieee.org/abstract/document/10468679">DRL-Based Transmission Design for Distributed STAR-RIS-aided Communications</a>", <em><strong>IEEE ANTS'23-Workshop 7 - Selected Topics in 6G Wireless Communications</strong></em>, Jaipur, India, 2023. (CCR - B)
-                </li>
-                <li>
-                    <strong>6. </strong>T. A. Lestari, <strong>S. Kurma</strong>, K. Singh, A. Paul, and S. Mumtaz, "<a href="https://ieeexplore.ieee.org/document/10437474">Active-RIS-Assisted Digital Twin-based URLLC Internet-of-Things Networks</a>", <em><strong>IEEE Global Communications Conference</strong></em>, Kuala Lumpur, Malaysia, 2023. (Tier 1)
-                </li>
-                <li>
-                    <strong>5. </strong><strong>S. Kurma</strong>, K. Singh, P. K. Sharma, C.-P. Li and T. A. Tsiftsis, "<a href="https://ieeexplore.ieee.org/abstract/document/10279490">Uplink Cell-Free Massive MIMO URLLC Systems with User Mobility and Imperfect CSI</a>", <em><strong>IEEE International Conference on Communications</strong></em>, Rome, Italy, 2023. (Tier 1)
-                </li>
-                <li>
-                    <strong>4. </strong><strong>S. Kurma</strong>, K. Singh, M. Katwe, S. Mumtaz and C.-P. Li, "<a href="https://ieeexplore.ieee.org/abstract/document/10226132">RIS-Empowered MEC for URLLC Systems with Digital-Twin-Driven Architecture</a>", <em><strong>IEEE INFOCOM WKSHPS</strong></em>, Hoboken, NJ, USA, 2023. (Tier 1)
-                </li>
-                <li>
-                    <strong>3. </strong><strong>S. Kurma</strong>, K. Singh, P. K. Sharma and C.-P. Li, "<a href="https://ieeexplore.ieee.org/abstract/document/10118961">DRL Approach for Spectral-Energy Trade-off in RIS-assisted Full-duplex Multi-user MIMO Systems</a>", <em><strong>IEEE WCNC</strong></em>, Glasgow, UK, 2023. (Tier 1)
-                </li>
-                <li>
-                    <strong>2. </strong><strong>S. Kurma</strong>, K. Singh, P. K. Sharma and C.-P. Li, "<a href="https://ieeexplore.ieee.org/abstract/document/10017452">Outage Probability Analysis of Uplink Cell-Free Massive MIMO with User Mobility</a>", <em><strong>IEEE MILCOM</strong></em>, Rockville, MD, USA, 2022. (Tier 1)
-                </li>
-                <li>
-                    <strong>1. </strong><strong>S. Kurma</strong>, P. K. Sharma, V. Panse and K. Singh, "<a href="https://ieeexplore.ieee.org/abstract/document/9625404">Cooperative User Selection with Non-Linear Energy Harvesting in IoT Environment</a>", <em><strong>IEEE 94th Vehicular Technology Conference</strong></em>, Norman, OK, USA, 2021. (Tier 1)
-                </li>
-                </ul>
+                <div class="section-title"><i class="fa-solid fa-file-lines"></i> Transaction Publications</div>
+                <h3>Under review</h3>
+                <ol reversed>
+                    <li><strong>20. </strong>OJ Pandey, MK Shukla, <strong>S. Kurma</strong>, CH. Liu, and V. Marojevic, “Towards Intelligent Semantic Communications: A Survey on AI Methods for Efficient Information Transmission,” <em><strong>IEEE Communications Surveys & Tutorials</strong></em>, Oct. 2025. (Under review).</li>
+                    <li><strong>19. </strong><strong>S. Kurma</strong>, M. Zhang, U. Upadhyay, S. Dhamala, and V. Marojevic, “A Novel Jamming Detection and Classification in O-RAN,” <em><strong>IEEE Transactions on Vehicular Technology</strong></em>, Oct. 2025. (Under review).</li>
+                    <li><strong>18. </strong>S. Shilpa, S. K. Singh, <strong>S. Kurma</strong>, and S. Prathyusha, “Optimizing RSMA-Assisted Integrated Terrestrial and Non-Terrestrial Networks Performance,” <em><strong>IEEE Journal on Selected Areas in Communications</strong></em>, Oct. 2025. (Under review).</li>
+                    <li><strong>17. </strong>S. Gaurav, <strong>S. Kurma</strong>, C. Vini, and R. Debasri, “Secrecy Rate Optimization in Sparse Hybrid RIS-Aided Internet of Robotics Networks,” <em><strong>IEEE Transactions on Communications</strong></em>, Oct. 2025. (Under review).</li>
+                    <li><strong>16. </strong><strong>S. Kurma</strong>, S. Dhamala, U. Upadhyay, S. Judin, V. Marojevic, and S. Mumtaz, “Spectral-Energy Efficiency Trade-off Optimization in Hybrid RIS-Aided IAB Networks with Sparsification,” <em><strong>IEEE Transactions on Communications</strong></em>, Sep. 2025. (Under review).</li>
+                    <li><strong>15. </strong><strong>S. Kurma</strong>, CH. Liu, S. Dhamala, U. Upadhyay, V. Marojevic, and S. Mumtaz, “Secure and Privacy-Preserving ISAC in RIS-Aided IAB Networks with Delay Alignment Modulation,” <em><strong>IEEE Transactions on Network Science and Engineering</strong></em>, Sep. 2025. (Under review).</li>
+                    <li><strong>14. </strong><strong>S. Kurma</strong>, CH. Liu, S. Dhamala, U. Upadhyay, V. Marojevic, R. Allu, and S. Mumtaz, “Secrecy Rate Optimization Using Hybrid Actor DRL for DAM Integrated RIS-Aided IAB Networks,” <em><strong>IEEE Transactions on Wireless Communications</strong></em>, Sep. 2025. (Under review).</li>
+                    <li><strong>13. </strong><strong>S. Kurma</strong>, U. Upadhyay, and V. Marojevic, “Ensemble Machine Learning-Enabled xApps for Multi-Class Jamming Detection in O-RAN,” <em><strong>IEEE Transactions on Vehicular Technology</strong></em>, Sep. 2025. (Under review).</li>
+                </ol>
+                <h3>Accepted</h3>
+                <ol reversed>
+                    <li><strong>12. </strong><strong>S. Kurma</strong>, S. Dhamala, and V. Marojevic, “Slice-Aware Digital Twin Virtualization with RAG Assistant for O-RAN in Internet-of-Vehicles,” <em><strong>IEEE Transactions on Vehicular Technology</strong></em>, Sep. 2025. (Accepted on June 7, 2026).</li>
+                </ol>
+                <h3>Published / In Press</h3>
+                <ol reversed>
+                    <li><strong>11. </strong><strong>S. Kurma</strong>, K. Singh, A.-A. A. Boulogeorgos, C.-P. Li, and T. A. Tsiftsis, “<a class="publication-link" href="https://ieeexplore.ieee.org/document/11153881" target="_blank" rel="noopener noreferrer">Active RIS-Aided Full-Duplex Cell-Free Massive MIMO for Mobile Wireless Networks of Limited Capacity</a>,” <em><strong>IEEE Transactions on Vehicular Technology</strong></em>, Sep. 2025.</li>
+                    <li><strong>10. </strong><strong>S. Kurma</strong>, K. Singh, A. Paul, S. Mumtaz, and C.-P. Li, “<a class="publication-link" href="https://ieeexplore.ieee.org/document/11075701" target="_blank" rel="noopener noreferrer">Dual-LLM Integration for Next-Gen Wireless Networks: Synergizing with DUDR and RIS</a>,” <em><strong>IEEE Transactions on Communications</strong></em>, July 2025.</li>
+                    <li><strong>9. </strong><strong>S. Kurma</strong>, K. Singh, P. K. Sharma, C.-P. Li, and T. A. Tsiftsis, “<a class="publication-link" href="https://ieeexplore.ieee.org/document/10741221" target="_blank" rel="noopener noreferrer">On the Performance Analysis of Full-Duplex Cell-Free Massive MIMO with User Mobility and Imperfect CSI</a>,” <em><strong>IEEE Transactions on Communications</strong></em>, Nov. 2024.</li>
+                    <li><strong>8. </strong>T. A. Lestari, <strong>S. Kurma</strong>, K. Singh, A. Paul, S. Cotton, and T. Q. Duong, “<a class="publication-link" href="https://ieeexplore.ieee.org/abstract/document/10703125" target="_blank" rel="noopener noreferrer">Exploiting Active STAR-RIS to Enable URLLC in Digitally-Twinned Internet-of-Things Networks</a>,” <em><strong>IEEE Transactions on Communications</strong></em>, Oct. 2024.</li>
+                    <li><strong>7. </strong><strong>S. Kurma</strong>, K. Singh, S. Mumtaz, T. A. Tsiftsis, and C.-P. Li, “<a class="publication-link" href="https://ieeexplore.ieee.org/document/10606184" target="_blank" rel="noopener noreferrer">Resource Optimization in Active-STAR-RIS-Aided THz ISAC Systems with DDA Modulation: A Machine-Learning Approach</a>,” <em><strong>IEEE Transactions on Wireless Communications</strong></em>, July 2024.</li>
+                    <li><strong>6. </strong><strong>S. Kurma</strong>, K. Singh, A.-A. A. Boulogeorgos, C.-P. Li, and T. A. Tsiftsis, “<a class="publication-link" href="https://ieeexplore.ieee.org/abstract/document/10525063" target="_blank" rel="noopener noreferrer">URLLC-Enabled Full-Duplex Cell-Free Massive MIMO Systems for Intelligent Vehicles with Mobility and CSI Imperfections</a>,” <em><strong>IEEE Open Journal of the Communications Society</strong></em>, May 2024.</li>
+                    <li><strong>5. </strong><strong>S. Kurma</strong>, P. K. Sharma, K. Singh, S. Mumtaz, and C.-P. Li, “<a class="publication-link" href="https://ieeexplore.ieee.org/abstract/document/9756304" target="_blank" rel="noopener noreferrer">URLLC-Based Cooperative Industrial IoT Networks with Nonlinear Energy Harvesting</a>,” <em><strong>IEEE Transactions on Industrial Informatics</strong></em>, May 2024.</li>
+                    <li><strong>4. </strong><strong>S. Kurma</strong>, T. A. Lestari, K. Singh, A. Paul, and S. Mumtaz, “<a class="publication-link" href="https://ieeexplore.ieee.org/document/10509625" target="_blank" rel="noopener noreferrer">Active RIS in Digital Twin-Based URLLC IoT Networks: Fully-Connected vs. Sub-Connected?</a>,” <em><strong>IEEE Transactions on Wireless Communications</strong></em>, Apr. 2024.</li>
+                    <li><strong>3. </strong><strong>S. Kurma</strong>, M. Katwe, K. Singh, C. Pan, S. Mumtaz, and C.-P. Li, “<a class="publication-link" href="https://ieeexplore.ieee.org/abstract/document/10319784" target="_blank" rel="noopener noreferrer">RIS-Empowered MEC for URLLC Systems with Digital-Twin-Driven Architecture</a>,” <em><strong>IEEE Transactions on Communications</strong></em>, Apr. 2024.</li>
+                    <li><strong>2. </strong><strong>S. Kurma</strong>, M. Katwe, K. Singh, T. Q. Duong, and C.-P. Li, “<a class="publication-link" href="https://ieeexplore.ieee.org/abstract/document/10289120" target="_blank" rel="noopener noreferrer">Spectral-Energy Efficient Resource Allocation in RIS-Aided FD-MIMO Systems</a>,” <em><strong>IEEE Transactions on Wireless Communications</strong></em>, Oct. 2023.</li>
+                    <li><strong>1. </strong><strong>S. Kurma</strong>, P. K. Sharma, S. Dhok, K. Singh, and C.-P. Li, “<a class="publication-link" href="https://ieeexplore.ieee.org/abstract/document/9802824" target="_blank" rel="noopener noreferrer">Adaptive AF/DF Two-Way Relaying in FD Multiuser URLLC System with User Mobility</a>,” <em><strong>IEEE Transactions on Wireless Communications</strong></em>, Dec. 2022.</li>
+                </ol>
             </div>
+
             <div class="publication-box">
-                <div class="section-title"><i class="fa-solid fa-book"></i>Book Chapters</div>
-                <ul>
-                    <li>
-                        <strong>1. </strong><strong>Sravani Kurma</strong>, Gowtham Behara, Naga Nidadavolu, "Designing with Conscience: Ethics for the AI Era", Nova Publications, (Accepted), Oct, 2025.
-                    </li>
-                </ul>
+                <div class="section-title"><i class="fa-solid fa-people-group"></i> Conference Publications</div>
+                <h3>Under review</h3>
+                <ol>
+                    <li><strong>1. </strong><strong>S. Kurma</strong>, M.-A. Cheddadi, R. Berber, A. S. Abdalla, and V. Marojevic, “Mobility-Aware DT for Dynamic CSI Compression and Feedback in Massive MIMO System,” <em><strong>IEEE VTC</strong></em>, Boston, USA, 2026. (Under review).</li>
+                    <li><strong>2. </strong><strong>S. Kurma</strong>, M. Zhang, U. Upadhyay, M. A. Mian, and V. Marojevic, “An Ensemble Machine Learning-Enabled xApp for Multi-Class Jamming Detection in O-RAN,” <em><strong>IEEE VTC</strong></em>, Boston, USA, 2026. (Under review).</li>
+                </ol>
+                <h3>Accepted</h3>
+                <ol>
+                    <li><strong>1. </strong>S. Gaurav, <strong>S. Kurma</strong>, C. Vini, and R. Debasri, “Secure and Efficient Transmission in Hybrid Sparse RIS-Enabled Internet of Robotic Things,” <em><strong>Wi-Opt</strong></em>, Ohio, USA, 2026. (Accepted).</li>
+                    <li><strong>2. </strong><strong>S. Kurma</strong>, C. Liu, S. Dhamala, U. Upadhyay, V. Marojevic, and S. Mumtaz, “Secure and Privacy-Preserving ISAC in RIS-Aided IAB,” <em><strong>IEEE International Conference on Communications</strong></em>, Glasgow, Scotland, UK, 2026. (Accepted).</li>
+                    <li><strong>3. </strong><strong>S. Kurma</strong>, C. Liu, S. Dhamala, U. Upadhyay, V. Marojevic, and S. Mumtaz, “Hybrid DRL for Secrecy Optimization in RIS-Aided IAB Networks with DAM,” <em><strong>IEEE International Conference on Communications</strong></em>, Glasgow, Scotland, UK, 2026. (Accepted).</li>
+                    <li><strong>4. </strong><strong>S. Kurma</strong>, S. Dhamala, and M. Vuk, “AI-Driven Slice-Aware Digital Twin Virtualization in O-RAN for IoV with eMBB and URLLC Traffic,” <em><strong>IEEE International Conference on Communications</strong></em>, Glasgow, Scotland, UK, 2026. (Accepted).</li>
+                    <li><strong>5. </strong><strong>S. Kurma</strong>, E. Cruz, A. El Bellaj, and V. Marojevic, “Testbed Validation of Closed-Loop Slice Resource Allocation in O-RAN Using Agentic LLMs,” submitted to <em><strong>IEEE VTC</strong></em>, Boston, USA, 2026.</li>
+                    <li><strong>6. </strong><strong>S. Kurma</strong>, M. A. Mian, A. S. Abdalla, and V. Marojevic, “DT-Driven RIS Localization and Calibration for O-RAN with LLM-Assisted Control,” <em><strong>IEEE VTC</strong></em>, Boston, USA, 2026.</li>
+                    <li><strong>7. </strong><strong>S. Kurma</strong>, S. Dhamala, S. Judin, and V. Marojevic, “Multi-Actor DRL with LLM for Energy-Efficient Sparse Hybrid RIS-IAB Network,” <em><strong>IEEE VTC</strong></em>, Boston, USA, 2026.</li>
+                </ol>
+                <h3>Published / In Press</h3>
+                <ol reversed>
+                    <li><strong>12. </strong><strong>S. Kurma</strong>, Tri Ayu Lestari, K. Singh, A. Paul, and S. Biswas, “<a class="publication-link" href="https://ieeexplore.ieee.org/document/11161644" target="_blank" rel="noopener noreferrer">Digital Twin and Active STAR-RIS Integration for Improved URLLC in Cognitive Radio Networks</a>,” <em><strong>IEEE International Conference on Communications</strong></em>, Montreal, Canada, 2025, pp. 3636-3641, doi: 10.1109/ICC52391.2025.11161644.</li>
+                    <li><strong>11. </strong><strong>S. Kurma</strong>, K. Singh, A. Paul, S. Mumtaz, and C.-P. Li, “<a class="publication-link" href="https://ieeexplore.ieee.org/document/11152831" target="_blank" rel="noopener noreferrer">LLMs for Resource Allocation in Next-Gen RIS-Aided Healthcare Wireless Networks</a>,” <em><strong>IEEE INFOCOM METAVERSE</strong></em>, London, UK, 2025.</li>
+                    <li><strong>10. </strong>T. A. Lestari, <strong>S. Kurma</strong>, K. Singh, A. Paul, and S. Mumtaz, “<a class="publication-link" href="https://ieeexplore.ieee.org/abstract/document/10623114" target="_blank" rel="noopener noreferrer">Active STAR-RIS Assisted Digital Twin-Based URLLC Internet-of-Things Networks</a>,” <em><strong>IEEE International Conference on Communications</strong></em>, Denver, CO, USA, 2024.</li>
+                    <li><strong>9. </strong><strong>S. Kurma</strong>, K. Singh, S. Mumtaz, T. A. Tsiftsis, and C.-P. Li, “<a class="publication-link" href="https://ieeexplore.ieee.org/document/10622984" target="_blank" rel="noopener noreferrer">ML-Driven Resource Optimization in Active-STAR-RIS-Aided THz ISAC Systems with DDA Modulation</a>,” <em><strong>IEEE International Conference on Communications</strong></em>, Denver, CO, USA, 2024.</li>
+                    <li><strong>8. </strong><strong>S. Kurma</strong>, K. Singh, V. Bhatia, C.-P. Li, and T. A. Tsiftsis, “<a class="publication-link" href="https://ieeexplore.ieee.org/abstract/document/10622188" target="_blank" rel="noopener noreferrer">Active RIS-Assisted CFm-MIMO with User Mobility and Constrained Fronthaul Capacity</a>,” <em><strong>IEEE International Conference on Communications</strong></em>, Denver, CO, USA, 2024.</li>
+                    <li><strong>7. </strong>R. Yadav, <strong>S. Kurma</strong>, S. K. Singh, C.-P. Li, and M. R. Parate, “<a class="publication-link" href="https://ieeexplore.ieee.org/abstract/document/10468679" target="_blank" rel="noopener noreferrer">DRL-Based Transmission Design for Distributed STAR-RIS-Aided Communications</a>,” <em><strong>IEEE ANTS’23 Workshop 7: Selected Topics in 6G Wireless Communications</strong></em>, Jaipur, India, 2023.</li>
+                    <li><strong>6. </strong>T. A. Lestari, <strong>S. Kurma</strong>, K. Singh, A. Paul, and S. Mumtaz, “<a class="publication-link" href="https://ieeexplore.ieee.org/document/10437474" target="_blank" rel="noopener noreferrer">Active-RIS-Assisted Digital Twin-Based URLLC Internet-of-Things Networks</a>,” <em><strong>IEEE Global Communications Conference</strong></em>, Kuala Lumpur, Malaysia, 2023.</li>
+                    <li><strong>5. </strong><strong>S. Kurma</strong>, K. Singh, P. K. Sharma, C.-P. Li, and T. A. Tsiftsis, “<a class="publication-link" href="https://ieeexplore.ieee.org/abstract/document/10279490" target="_blank" rel="noopener noreferrer">Uplink Cell-Free Massive MIMO URLLC Systems with User Mobility and Imperfect CSI</a>,” <em><strong>IEEE International Conference on Communications</strong></em>, Rome, Italy, 2023.</li>
+                    <li><strong>4. </strong><strong>S. Kurma</strong>, K. Singh, M. Katwe, S. Mumtaz, and C.-P. Li, “<a class="publication-link" href="https://ieeexplore.ieee.org/abstract/document/10226132" target="_blank" rel="noopener noreferrer">RIS-Empowered MEC for URLLC Systems with Digital-Twin-Driven Architecture</a>,” <em><strong>IEEE INFOCOM WKSHPS</strong></em>, Hoboken, NJ, USA, 2023.</li>
+                    <li><strong>3. </strong><strong>S. Kurma</strong>, K. Singh, P. K. Sharma, and C.-P. Li, “<a class="publication-link" href="https://ieeexplore.ieee.org/abstract/document/10118961" target="_blank" rel="noopener noreferrer">DRL Approach for Spectral-Energy Trade-off in RIS-Assisted Full-Duplex Multi-User MIMO Systems</a>,” <em><strong>IEEE WCNC</strong></em>, Glasgow, UK, 2023.</li>
+                    <li><strong>2. </strong><strong>S. Kurma</strong>, K. Singh, P. K. Sharma, and C.-P. Li, “<a class="publication-link" href="https://ieeexplore.ieee.org/abstract/document/10017452" target="_blank" rel="noopener noreferrer">Outage Probability Analysis of Uplink Cell-Free Massive MIMO with User Mobility</a>,” <em><strong>IEEE MILCOM</strong></em>, Rockville, MD, USA, 2022.</li>
+                    <li><strong>1. </strong><strong>S. Kurma</strong>, P. K. Sharma, V. Panse, and K. Singh, “<a class="publication-link" href="https://ieeexplore.ieee.org/abstract/document/9625404" target="_blank" rel="noopener noreferrer">Cooperative User Selection with Non-Linear Energy Harvesting in IoT Environment</a>,” <em><strong>IEEE 94th Vehicular Technology Conference</strong></em>, Norman, OK, USA, 2021.</li>
+                </ol>
+            </div>
+
+            <div class="publication-box">
+                <div class="section-title"><i class="fa-solid fa-book-open"></i> Book Chapters</div>
+                <ol>
+                    <li><strong>1. </strong><strong>Sravani Kurma</strong>, Gowtham Behara, and Naga Nidadavolu, “Designing with Conscience: Ethics for the AI Era,” Nova Publications, Oct. 2025. (Accepted).</li>
+                </ol>
             </div>
         </div>
     </div>
 </div>
-
 
 
 <!-- Projects Section -->
@@ -1487,12 +1604,16 @@ r<!DOCTYPE html>
                 <h3>MSU Projects</h3>
                 <ul>
                     <li>
+                        <strong>2026:</strong> ORED UG Research Program Grant - MSU funded project<br>
+                        <span class="role">Role: Principal Investigator, Mississippi State University, MS, USA</span>
+                    </li>
+                    <li>
                         <strong>2026:</strong> Software Tester UE - NTIA funded project<br>
-                        <span class="role">Role: Assistant Research Professor at MSU wireless lab, MSU, USA</span>
-                    </li> 
+                        <span class="role">Role: Assistant Research Professor at Mississippi State University, MS, USA</span>
+                    </li>
                     <li>
                         <strong>2025:</strong> Open Artificial Intelligence Cellular (OAIC) - NSF funded project<br>
-                        <span class="role">Role: Assistant Research Professor at MSU wireless lab, MSU, USA</span>
+                        <span class="role">Role: Assistant Research Professor at Mississippi State University, MS, USA</span>
                     </li>
                 </ul>
             </div>
@@ -1500,32 +1621,36 @@ r<!DOCTYPE html>
                 <h3>NSYSU Projects</h3>
                 <ul>
                     <li>
-                        <strong>2023:</strong> Integrated sensing and communication systems enhanced and reconfigurable with intelligent surface assistance using next-generation multi-access technology<br>
-                        <span class="role">Role: Research assistant at i-WIC lab, NSYSU, Taiwan</span>
+                        <strong>2024:</strong> Integrated sensing and communication systems enhanced and reconfigurable with intelligent surface assistance using next-generation multi-access technology<br>
+                        <span class="role">Role: Research Assistant at i-WIC Lab, NSYSU, Taiwan</span>
                     </li>
                     <li>
-                        <strong>2023:</strong> 6G mid- and high-frequency high-order MIMO mobile communication system<br>
-                        <span class="role">Role: Research assistant at i-WIC lab, NSYSU, Taiwan</span>
+                        <strong>2024:</strong> 6G mid- and high-frequency high-order MIMO mobile communication system<br>
+                        <span class="role">Role: Research Assistant at i-WIC Lab, NSYSU, Taiwan</span>
                     </li>
                     <li>
                         <strong>2023:</strong> Development of key communication technologies for next-generation terminals and small base stations based on mid-frequency and high-band MIMO multi-antenna systems<br>
-                        <span class="role">Role: Research assistant at i-WIC lab, NSYSU, Taiwan</span>
+                        <span class="role">Role: Research Assistant at i-WIC Lab, NSYSU, Taiwan</span>
                     </li>
                     <li>
-                        <strong>2022:</strong> Development and system verification of a mid-frequency and high-band MIMO multi-antenna system and a combined MIMO reconfigurable smart surface platform<br>
-                        <span class="role">Role: Research assistant at i-WIC lab, NSYSU, Taiwan</span>
+                        <strong>2023:</strong> Development and system verification of a mid-frequency and high-band MIMO multi-antenna system and a combined MIMO reconfigurable smart surface platform<br>
+                        <span class="role">Role: Research Assistant at i-WIC Lab, NSYSU, Taiwan</span>
                     </li>
                     <li>
                         <strong>2022:</strong> Reconfigurable Smart Surface with Simultaneous Transmission and Reflection (STAR-RIS) and Multi-RIS Assisted Rate Split Multiple Access (RSMA) to achieve higher data rates and coverage in 6G<br>
-                        <span class="role">Role: Research assistant at i-WIC lab, NSYSU, Taiwan</span>
+                        <span class="role">Role: Research Assistant at i-WIC Lab, NSYSU, Taiwan</span>
+                    </li>
+                    <li>
+                        <strong>2022:</strong> Potential International Communications Research Group - 5G/B5G Experimental Platform Establishment and Key Technology Development - Higher Education Deepening Plan<br>
+                        <span class="role">Role: Research Assistant at i-WIC Lab, NSYSU, Taiwan</span>
                     </li>
                     <li>
                         <strong>2021:</strong> Codebook and receiver design of sparse code multiple access system assisted by artificial intelligence<br>
-                        <span class="role">Role: Research assistant at i-WIC lab, NSYSU, Taiwan</span>
+                        <span class="role">Role: Research Assistant at i-WIC Lab, NSYSU, Taiwan</span>
                     </li>
                     <li>
                         <strong>2021:</strong> UAV wireless communication assisted by smart reflective surfaces in finite energy Internet of Things: analysis of infinite and finite block lengths<br>
-                        <span class="role">Role: Research assistant at i-WIC lab, NSYSU, Taiwan</span>
+                        <span class="role">Role: Research Assistant at i-WIC Lab, NSYSU, Taiwan</span>
                     </li>
                 </ul>
             </div>
@@ -1534,20 +1659,40 @@ r<!DOCTYPE html>
 </div>
 
 
+<!-- Grants Section -->
+<div class="section" id="grants">
+    <div class="section-title"><i class="fa-solid fa-file-lines"></i> Sponsored Research Project Grants</div>
+    <div class="section-content">
+        <div class="projects">
+            <div class="project-box">
+                <h3>Office of Research and Economic Development Undergraduate Research Program Grant</h3>
+                <ul>
+                    <li><strong>Period:</strong> 2026–2027</li>
+                    <li><strong>Role:</strong> Principal Investigator, Mississippi State University</li>
+                    <li><strong>Title:</strong> Advancing Open-Testbed UAV Communication Research</li>
+                    <li><strong>Project Objective:</strong> Awarded internal research funding to develop an AI-enabled, mission-aware UAV communication framework using OAIC and AERPAW open wireless testbeds. The project supports undergraduate research engagement in testbed setup, software integration, experiment execution, data collection, performance analysis, and research dissemination.</li>
+                    <li><strong>Budget/Support:</strong> $2,000</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <!-- Contact Section -->
 <div class="section" id="contact">
     <div class="section-title"><i class="fa-solid fa-user"></i> Contact</div>
     <div class="section-content">
         <div class="contact-info">
-            <p><i class="fa-solid fa-envelope icon"></i><span class="contact-type">Email:</span> <a href="mailto:sravani.kurma2026@gmail.com" class="contact-link">sravani.kurma2026@gmail.com</a> | <a href="mailto:sravani.kurma@ece.msstate.edu" class="contact-link">sravani.kurma@ece.msstate.edu</a></p>
+            <p><i class="fa-solid fa-envelope icon"></i><span class="contact-type">Email:</span> <a href="mailto:sravani.kurma2025@gmail.com" class="contact-link">sravani.kurma2025@gmail.com</a> | <a href="mailto:sravani.kurma@ece.msstate.edu" class="contact-link">sravani.kurma@ece.msstate.edu</a></p>
             <p><i class="fa-brands fa-linkedin icon"></i><span class="contact-type">LinkedIn:</span> <a href="https://linkedin.com/in/sravanikurma" target="_blank" class="contact-link">linkedin.com/in/sravanikurma</a></p>
+            <p><i class="fa-solid fa-globe icon"></i><span class="contact-type">Website:</span> <a href="https://sravani-kurma.github.io/CV/" target="_blank" class="contact-link">https://sravani-kurma.github.io/CV/</a></p>
+            <p><i class="fa-brands fa-orcid icon"></i><span class="contact-type">ORCID:</span> <a href="https://orcid.org/0000-0002-3819-2082" target="_blank" class="contact-link">0000-0002-3819-2082</a></p>
+            <p><i class="fa-solid fa-id-card icon"></i><span class="contact-type">Web of Science Researcher ID:</span> IST-9862-2023</p>
             <p><i class="fa-solid fa-phone icon"></i><span class="contact-type">Phone:</span> <a href="tel:+16623524306" class="contact-link">+1 662-352-4306</a></p>
         </div>
     </div>
 </div>
-
-
 
 <!-- Referees Section -->
 <div class="section" id="referees">
